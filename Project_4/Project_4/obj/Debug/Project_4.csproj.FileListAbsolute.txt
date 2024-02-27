@@ -47,3 +47,4 @@ C:\Users\301-08\Desktop\Project_4\Project_4\obj\Debug\Project_4.csproj.CoreCompi
 C:\Users\301-08\Desktop\Project_4\Project_4\obj\Debug\Project_4.exe
 C:\Users\301-08\Desktop\Project_4\Project_4\obj\Debug\Project_4.pdb
 C:\Users\301-24\Desktop\Project_4\Project_4\obj\Debug\Project_4.Form_inv_add.resources
+C:\Users\301-24\Desktop\Project_4\Project_4\obj\Debug\Project_4.outpatient.resources

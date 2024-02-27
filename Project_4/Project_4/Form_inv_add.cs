@@ -78,7 +78,7 @@ namespace Project_4
     {
         public static List<string> text_ss()
         {
-            string I_path = "C:/Users/301-24/Desktop/Inventory Manager.txt";       // 제품 정보 텍스트 파일
+            string I_path = "Inventory Manager.txt";       // 제품 정보 텍스트 파일
             List<string> lines = File.ReadAllLines(I_path).ToList();                // 파일의 모든 줄을 읽고 리스트화
             return lines;
         }
@@ -99,7 +99,7 @@ namespace Project_4
             string Icode = Form_main.form_inv_add.textBox1.Text;          // 신규제품 코드
             string Iname = Form_main.form_inv_add.textBox2.Text;         // 신규제품 이름
             string Icount = Form_main.form_inv_add.textBox3.Text;         // 신규제품 재고
-            string inventory = "C:/Users/301-24/Desktop/Inventory Manager.txt";
+            string inventory = "Inventory Manager.txt";
             string Inew_info = $"{Icode}\t{Iname}\t{Icount}";
             File.AppendAllText(inventory, Inew_info + Environment.NewLine);
             // 각 라인들의 이름을 비교해서 사전순으로 정렬
