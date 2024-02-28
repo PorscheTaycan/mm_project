@@ -57,6 +57,7 @@
             this.textBox2.Size = new System.Drawing.Size(100, 21);
             this.textBox2.TabIndex = 1;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
             this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button1_KeyDown);
             // 
             // label1
@@ -133,6 +134,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(446, 326);
             this.button2.TabIndex = 12;
+            this.button2.TabStop = false;
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button4

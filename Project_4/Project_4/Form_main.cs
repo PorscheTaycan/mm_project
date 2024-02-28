@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -42,6 +43,9 @@ namespace Project_4
         {
 
             InitializeComponent();
+
+
+
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle; // 화면 사이즈 변경 불가능
             MaximizeBox = false; // 최대화 불가능
@@ -78,6 +82,14 @@ namespace Project_4
 
         private void Form_main_Load(object sender, EventArgs e)
         {
+           // main_textBox1.BorderColor = Color.Gray;
+
+            this.button9.BackgroundImageLayout = ImageLayout.Stretch;           // button사이즈에 맞춰 이미지 추가
+            this.button10.BackgroundImageLayout = ImageLayout.Stretch;           
+            this.button11.BackgroundImageLayout = ImageLayout.Stretch;           
+            this.button12.BackgroundImageLayout = ImageLayout.Stretch;           
+
+
             timer1.Interval = 100; // 타이머 간격 100ms
             timer1.Start();  // 타이머 시작  
 
@@ -137,15 +149,14 @@ namespace Project_4
                 DateTime currentDay = thisMonday.AddDays(i);
                 int reservationCount = GetReservationCount(lines, currentDay);
 
-                chart1.Series[0].Points.AddXY(currentDay.ToString("ddd"), reservationCount); // 요일과 예약자 수 차트에 추가
+                int v = chart1.Series[0].Points.AddXY(currentDay.ToString("ddd"), reservationCount); // 요일과 예약자 수 차트에 추가
 
             }
-
-
+           
 
         }
 
-        // 해당 날짜에 대한 예약자 수를 반환하는 메서드
+        // 해당 날짜에 대한 예약자 수를 반환하는 메서드`
         private int GetReservationCount(List<List<string>> lines, DateTime date)
         {
             int count = 0;
@@ -196,6 +207,18 @@ namespace Project_4
             panel4.Visible = false;
             panel8.Visible = false;
 
+            Font ft1 = new Font("G마켓 산스 TTF Light", 10);
+
+            Font ft2 = new Font("G마켓 산스 TTF Light", 16, FontStyle.Underline);
+            button1.Font = ft2;
+            button2.Font = ft1;
+            button3.Font = ft1;
+            button4.Font = ft1;
+
+
+
+
+
 
         }
 
@@ -206,6 +229,14 @@ namespace Project_4
             panel3.Visible = false;
             panel4.Visible = false;
             panel8.Visible = false;
+            Font ft1 = new Font("G마켓 산스 TTF Light", 10);
+
+            Font ft2 = new Font("G마켓 산스 TTF Light", 16, FontStyle.Underline);
+            button2.Font = ft2;
+            button1.Font = ft1;
+            button3.Font = ft1;
+            button4.Font = ft1;
+
 
 
         }
@@ -220,6 +251,14 @@ namespace Project_4
             Form_login.form_main.dataGridView1.Rows.Clear();
             //Inventory.Line_inv();
             textBox3_1.Focus();
+            Font ft1 = new Font("G마켓 산스 TTF Light", 10);
+
+            Font ft2 = new Font("G마켓 산스 TTF Light", 16, FontStyle.Underline);
+            button3.Font = ft2;
+            button2.Font = ft1;
+            button1.Font = ft1;
+            button4.Font = ft1;
+
 
 
         }
@@ -231,6 +270,14 @@ namespace Project_4
             panel3.Visible = false;
             panel4.Visible = true;
             panel8.Visible = false;
+            Font ft1 = new Font("G마켓 산스 TTF Light", 10);
+
+            Font ft2 = new Font("G마켓 산스 TTF Light", 16, FontStyle.Underline);
+            button4.Font = ft2;
+            button2.Font = ft1;
+            button3.Font = ft1;
+            button1.Font = ft1;
+
 
         }
 
@@ -472,10 +519,11 @@ namespace Project_4
 
         }
 
-        //글자수 제한도 만들어야함
+        
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            char[] inputchars = textBox4.Text.ToCharArray();
+            label3.Text = textBox4.Text; 
+            char[] inputchars = textBox4.Text.ToCharArray();          //한글만 들어가게
             var sb = new StringBuilder();
             
             foreach (var item in inputchars)
@@ -533,6 +581,7 @@ namespace Project_4
         private void textBox4_Click(object sender, EventArgs e)
         {
             label10.Visible = false;
+
         }
 
         private void textBox5_Click(object sender, EventArgs e)
@@ -548,6 +597,177 @@ namespace Project_4
         private void textBox7_Click(object sender, EventArgs e)
         {
             label10.Visible = false;
+        }
+
+        private void panel1_1_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panel1.ClientRectangle, Color.DarkGray, ButtonBorderStyle.Solid);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panel1.ClientRectangle, Color.DarkGray, ButtonBorderStyle.Solid);
+        }
+
+        private void panel1_2_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panel1.ClientRectangle, Color.DarkGray, ButtonBorderStyle.Solid);
+        }
+
+        private void panel1_3_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panel1.ClientRectangle, Color.DarkGray, ButtonBorderStyle.Solid);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+            textBox4.Focus();
+
+            textBox4.MaxLength = 7;
+            label3.Text = null;
+            textBox4.Text = null;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+            textBox5.Focus();
+            textBox5.MaxLength = 10;
+            label4.Text = null;
+            textBox5.Text = null;
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            label4.Text = textBox5.Text;
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            textBox6.Focus();
+            textBox6.MaxLength = 13;
+            label11.Text = null;
+            textBox6.Text = null;
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            label11.Text = textBox6.Text;
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+            textBox7.Focus();
+            textBox7.MaxLength = 13;
+            label12.Text = null;
+            textBox7.Text = null;
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+            label12.Text = textBox7.Text;
+
+        }
+
+        private void textBox4_Enter(object sender, EventArgs e)
+        {
+            label3.Text = string.Empty;
+        }
+
+        private void textBox5_Enter(object sender, EventArgs e)
+        {
+            label4.Text = string.Empty;
+        }
+
+        private void textBox6_Enter(object sender, EventArgs e)
+        {
+            label11.Text = string.Empty;
+        }
+
+        private void textBox7_Enter(object sender, EventArgs e)
+        {
+            label12.Text = string.Empty;
+        }
+
+        private void textBox4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                button6_Click_1(sender, e);
+            }
+            
+        }
+
+        private void textBox5_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button6_Click_1(sender, e);
+            }
+        }
+
+        private void textBox6_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button6_Click_1(sender, e);
+            }
+        }
+
+        private void textBox7_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button6_Click_1(sender, e);
+            }
+        }
+
+        private void dataGridView2_DoubleClick(object sender, EventArgs e)
+        {
+            panel8.Visible = false;
+        }
+
+        private void panel12_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panel12.ClientRectangle, Color.DarkSlateBlue, ButtonBorderStyle.Solid);
+
+        }
+
+        private void panel14_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panel14.ClientRectangle, Color.DarkSlateBlue, ButtonBorderStyle.Solid);
+
+        }
+
+
+
+        private void panel13_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panel13.ClientRectangle, Color.DarkSlateBlue, ButtonBorderStyle.Solid);
+
+        }
+
+        private void panel9_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panel13.ClientRectangle, Color.DarkOrange, ButtonBorderStyle.Solid);
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panel13.ClientRectangle, Color.DarkOrange, ButtonBorderStyle.Solid);
+
+        }
+
+        private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.panel13.ClientRectangle, Color.DarkOrange, ButtonBorderStyle.Solid);
+
         }
     }
 
@@ -632,7 +852,7 @@ class Patient
 
         string Pnew_info = $"{text_name}\t{text_age}\t{text_ssnum}\t{text_phone}\t{text_address}";
 
-        string patient = "C:/Users/301-10/Desktop/Patient.txt";
+        string patient = "Patient.txt";
 
         File.AppendAllText(patient, Pnew_info + Environment.NewLine);
     }

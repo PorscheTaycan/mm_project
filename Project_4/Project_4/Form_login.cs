@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Project_4
 {
@@ -88,7 +89,6 @@ namespace Project_4
             }
             catch
             {
-                MessageBox.Show("2222222222");
                
             }
         }
@@ -99,10 +99,9 @@ namespace Project_4
             textBox1.Focus();
             textBox1.MaxLength = 15;
             label3.Text = null;
-            /*if (textBox2.Text == null)
-            {
-                label4.Text = "PW를 입력해주세요.";
-            }*/
+            textBox1.Text = null;
+
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -110,10 +109,9 @@ namespace Project_4
             textBox2.Focus();
             textBox2.MaxLength = 15;
             label4.Text = null;
-            /*if (textBox1.Text == null)
-            {
-                label3.Text = "ID를 입력해주세요.";
-            }*/
+            textBox2.Text = null;
+
+
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -151,6 +149,11 @@ namespace Project_4
             {
                 button1_Click(sender, e);
             }
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            label4.Text = string.Empty;
         }
     }
 }
