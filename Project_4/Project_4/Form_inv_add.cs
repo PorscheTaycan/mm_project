@@ -76,37 +76,44 @@ namespace Project_4
     }
     class Inv_add
     {
-        public static List<string> text_ss()
-        {
-            string I_path = "Inventory Manager.txt";       // 제품 정보 텍스트 파일
-            List<string> lines = File.ReadAllLines(I_path).ToList();                // 파일의 모든 줄을 읽고 리스트화
-            return lines;
-        }
-        public static List<List<string>> Line()
-        {
-            List<string> inventory_data = new List<string>();                   // 각 줄의 데이터를 저장할 리스트 생성
-            List<List<string>> inventory_list = new List<List<string>>();       // 각 줄의 데이터를 저장한 리스트를 저장할 리스트
-            List<string> lines = Patient.text_ss();                             // lines는 text_ss()의 lines를 리턴받음
-            for (int i = 0; i < lines.Count; i++)                               // 파일 내용을 한 줄씩 읽어가며 처리
-            {
-                inventory_data = lines[i].Split('\t').ToList();
-                inventory_list.Add(inventory_data);                             // 각 재품 데이터 리스트를 전체 리스트에 추가
-            }
-            return inventory_list;
-        }
-        public static void Inew()
+        public static async void Inew()
         {
             string Icode = Form_main.form_inv_add.textBox1.Text;          // 신규제품 코드
             string Iname = Form_main.form_inv_add.textBox2.Text;         // 신규제품 이름
             string Icount = Form_main.form_inv_add.textBox3.Text;         // 신규제품 재고
             string inventory = "Inventory Manager.txt";
-            string Inew_info = $"{Icode}\t{Iname}\t{Icount}";
-            File.AppendAllText(inventory, Inew_info + Environment.NewLine);
-            // 각 라인들의 이름을 비교해서 사전순으로 정렬
             List<string> lines = File.ReadAllLines(inventory).ToList();
-            for (int i = 0; i < lines.Count; i++)
+            string Inew_info = $"{Icode}\t{Iname}\t{Icount}";
+
+            int count = 0;                          // 중복 값 확인
+            for (int i = 0; i < lines.Count; i++)                         // 제품 텍스트파일 행만큼 반복
             {
-                List<string> columns = lines[i].Split('\t').ToList();    // lines[i]를 탭으로 나눠서 리스트에 배치, {"코드","제품명","재고"}
+                List<string> columns = lines[i].Split('\t').ToList();
+                if (Icode == columns[0])                            // 제품 코드가 같다면
+                {
+                    count++;
+                    break;
+                }
+            }
+            if (count == 0)             // 중복이 없다면
+            {
+                File.AppendAllText(inventory, Inew_info + Environment.NewLine);         // 제품 추가
+                List<string> sort = File.ReadAllLines(inventory).ToList();
+                string firstLine = sort.FirstOrDefault();
+                List<string> linesToSort = sort.Skip(1).ToList();
+                linesToSort.Sort();
+                List<string> sortedLines = new List<string>();
+                sortedLines.Add(firstLine);
+                sortedLines.AddRange(linesToSort);
+                File.WriteAllLines(inventory, sortedLines);
+                // 각 라인들의 이름을 비교해서 사전순으로 정렬
+                // 카테고리 줄은 고정
+            }
+            else
+            {
+                Form_main.form_inv_add.label4.Text = "이미 포함된 제품입니다.";
+                await Task.Delay(1000);                     // 일정시간후 에러메시지 삭제
+                Form_main.form_inv_add.label4.Text = null;
             }
         }
     }

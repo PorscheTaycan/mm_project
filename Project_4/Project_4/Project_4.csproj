@@ -67,11 +67,29 @@
     <Compile Include="Form_main.Designer.cs">
       <DependentUpon>Form_main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_pay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_pay.Designer.cs">
+      <DependentUpon>Form_pay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_vacation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_vacation.Designer.cs">
+      <DependentUpon>Form_vacation.cs</DependentUpon>
+    </Compile>
     <Compile Include="login_error.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="login_error.Designer.cs">
       <DependentUpon>login_error.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manage.Designer.cs">
+      <DependentUpon>manage.cs</DependentUpon>
     </Compile>
     <Compile Include="outpatient.cs">
       <SubType>Form</SubType>
@@ -81,6 +99,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControlBlank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlBlank.Designer.cs">
+      <DependentUpon>UserControlBlank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControldays.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControldays.Designer.cs">
+      <DependentUpon>UserControldays.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form_inv_add.resx">
       <DependentUpon>Form_inv_add.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,8 +120,17 @@
     <EmbeddedResource Include="Form_main.resx">
       <DependentUpon>Form_main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_pay.resx">
+      <DependentUpon>Form_pay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_vacation.resx">
+      <DependentUpon>Form_vacation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login_error.resx">
       <DependentUpon>login_error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manage.resx">
+      <DependentUpon>manage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="outpatient.resx">
       <DependentUpon>outpatient.cs</DependentUpon>
@@ -106,6 +145,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControldays.resx">
+      <DependentUpon>UserControldays.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

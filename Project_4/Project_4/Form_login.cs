@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Project_4
 {
@@ -16,14 +19,20 @@ namespace Project_4
     public partial class Form_login : Form
     {
         public static Form_main form_main;
+        public string UserName { get; private set; }
+        public string UserBirth { get; private set; }
+        public string UserRent { get; private set; }
+
 
         public Form_login()
         {
             InitializeComponent();
+            
             this.BackgroundImage = Properties.Resources.kk;
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle; // 화면 사이즈 변경 불가능
         }
+
 
         private void Form_login_Load(object sender, EventArgs e)
         {
@@ -47,7 +56,7 @@ namespace Project_4
         {
             string path = "Info.txt";  // Info 파일 경로
             //int name, birth, address, phone, bank, start, blood, id, password, admin = 0;     에러
-            int name = 0, birth = 0, address = 0, phone = 0, bank = 0, start = 0, blood = 0, id = 0, password = 0, admin = 0; // 열번호를 저장할 변수
+            int name = 0, birth = 0, address = 0, phone = 0, bank = 0, start = 0, blood = 0, id = 0, password = 0, admin = 0,monthrent=0; // 열번호를 저장할 변수
             try
             {
                 List<string> lines = File.ReadAllLines(path).ToList();       // 파일의 모든 줄을 읽고 리스트화
@@ -66,6 +75,7 @@ namespace Project_4
                         id = columns.IndexOf("ID");                     // "ID" 열번호
                         password = columns.IndexOf("PW");               // "PW" 열번호
                         admin = columns.IndexOf("admin");               // "admin" 열번호
+                        monthrent = columns.IndexOf("monthrent");
                     }
                     else                                // 행 번호가 1 이상인 경우
                     {
@@ -73,8 +83,11 @@ namespace Project_4
                         {
                             bool isAdmin = columns[admin] == "O";  // 권한이 O일때 관리자
                             string Name = columns[name];
+                            UserName = columns[name];
+                            UserBirth = columns[birth];
+                            UserRent = columns[monthrent];
                             this.Hide();  // Form_login 창을 숨김
-                            form_main = new Form_main(this, isAdmin, Name);
+                            form_main = new Form_main(this, isAdmin,UserName, UserBirth, UserRent);
                             form_main.ShowDialog();
                             this.Close();  //form_main 창이 없어지면 login창도 없어진다. 
                             return;
