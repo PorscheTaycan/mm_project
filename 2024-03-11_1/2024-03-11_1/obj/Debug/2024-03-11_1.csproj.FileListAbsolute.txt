@@ -1,0 +1,10 @@
+C:\Users\301-24\Desktop\2024-03-11_1\2024-03-11_1\bin\Debug\2024-03-11_1.exe.config
+C:\Users\301-24\Desktop\2024-03-11_1\2024-03-11_1\bin\Debug\2024-03-11_1.exe
+C:\Users\301-24\Desktop\2024-03-11_1\2024-03-11_1\bin\Debug\2024-03-11_1.pdb
+C:\Users\301-24\Desktop\2024-03-11_1\2024-03-11_1\obj\Debug\2024-03-11_1.csproj.AssemblyReference.cache
+C:\Users\301-24\Desktop\2024-03-11_1\2024-03-11_1\obj\Debug\_2024_03_11_1.Form1.resources
+C:\Users\301-24\Desktop\2024-03-11_1\2024-03-11_1\obj\Debug\_2024_03_11_1.Properties.Resources.resources
+C:\Users\301-24\Desktop\2024-03-11_1\2024-03-11_1\obj\Debug\2024-03-11_1.csproj.GenerateResource.cache
+C:\Users\301-24\Desktop\2024-03-11_1\2024-03-11_1\obj\Debug\2024-03-11_1.csproj.CoreCompileInputs.cache
+C:\Users\301-24\Desktop\2024-03-11_1\2024-03-11_1\obj\Debug\2024-03-11_1.exe
+C:\Users\301-24\Desktop\2024-03-11_1\2024-03-11_1\obj\Debug\2024-03-11_1.pdb
